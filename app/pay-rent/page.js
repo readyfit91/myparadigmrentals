@@ -100,10 +100,10 @@ export default function PayRentPage() {
             <div className="bg-white rounded-xl shadow-sm p-8 border border-primary-100">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Mail a Check</h3>
               <p className="text-gray-600 mb-6">
-                Make checks or money orders payable to <strong>MyParadigm Rentals</strong> and mail to:
+                Make checks or money orders payable to <strong>Paradigm Rentals</strong> and mail to:
               </p>
               <div className="bg-gray-50 rounded-lg p-5 font-mono text-sm text-gray-800 leading-relaxed mb-6">
-                MyParadigm Rentals
+                Paradigm Rentals
               </div>
               <p className="text-sm text-gray-500">
                 Please write your unit number and full name in the memo line. Allow 3–5 business days for mailed payments to be processed.

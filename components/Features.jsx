@@ -61,7 +61,7 @@ export default function Features() {
     <section id="features" className="py-20 bg-gray-50 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Why Choose MyParadigm Rentals?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Why Choose Paradigm Rentals?</h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
             We go beyond just providing a place to live — we provide a community and an experience.
           </p>

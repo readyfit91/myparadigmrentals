@@ -10,7 +10,7 @@ export default function Hero() {
           <span className="text-sky-300">Place to Call Home</span>
         </h1>
         <p className="text-lg sm:text-xl text-primary-100 max-w-2xl mx-auto mb-10">
-          MyParadigm Rentals offers quality apartments and homes that fit your lifestyle and budget. Browse available units and schedule a tour today.
+          Paradigm Rentals offers quality apartments and homes that fit your lifestyle and budget. Browse available units and schedule a tour today.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

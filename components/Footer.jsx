@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 pt-6 text-center text-sm">
-          © {new Date().getFullYear()} MyParadigm Rentals. All rights reserved.
+          © {new Date().getFullYear()} Paradigm Rentals. All rights reserved.
         </div>
       </div>
     </footer>

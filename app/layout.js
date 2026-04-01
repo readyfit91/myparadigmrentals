@@ -1,9 +1,9 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'MyParadigm Rentals | Find Your Perfect Home',
+  title: 'Paradigm Rentals | Find Your Perfect Home',
   description:
-    'Discover quality apartments and rental properties with MyParadigm Rentals. Modern living spaces at competitive prices in your area.',
+    'Discover quality apartments and rental properties with Paradigm Rentals. Modern living spaces at competitive prices in your area.',
 };
 
 export default function RootLayout({ children }) {

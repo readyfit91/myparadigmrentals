@@ -23,7 +23,7 @@ export default function Navbar() {
             <Link href="/">
               <Image
                 src="/logo.png"
-                alt="MyParadigm Rentals"
+                alt="Paradigm Rentals"
                 width={160}
                 height={48}
                 className="object-contain"

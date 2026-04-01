@@ -2,8 +2,8 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
 export const metadata = {
-  title: 'About Us | MyParadigm Rentals',
-  description: 'Learn the story behind MyParadigm Rentals — a family-owned business built on sacrifice, perseverance, and the belief that every home should feel like one.',
+  title: 'About Us | Paradigm Rentals',
+  description: 'Learn the story behind Paradigm Rentals — a family-owned business built on sacrifice, perseverance, and the belief that every home should feel like one.',
 };
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
             <span className="text-sky-300">Rooted in Purpose.</span>
           </h1>
           <p className="text-lg text-primary-100 max-w-2xl mx-auto leading-relaxed">
-            MyParadigm Rentals is more than a property company. It is the realization of a dream
+            Paradigm Rentals is more than a property company. It is the realization of a dream
             carried across borders, shaped by perseverance, and grounded in the belief that
             every person deserves a place that truly feels like home.
           </p>
@@ -35,7 +35,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Where It All Began</h2>
           <div className="space-y-5 text-gray-600 leading-relaxed text-lg">
             <p>
-              MyParadigm Rentals was born from a deeply personal journey — the journey of an immigrant
+              Paradigm Rentals was born from a deeply personal journey — the journey of an immigrant
               family arriving in the United States with little more than determination, faith, and an
               unrelenting will to build something meaningful. Like so many who have come before us,
               we arrived searching not just for opportunity, but for belonging. For stability.
@@ -67,7 +67,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">The Idea Behind the Name</h2>
           <div className="space-y-5 text-gray-600 leading-relaxed text-lg">
             <p>
-              The name <strong className="text-gray-800">MyParadigm Rentals</strong> is rooted in the
+              The name <strong className="text-gray-800">Paradigm Rentals</strong> is rooted in the
               concept of the Paradigm Shift, a term coined by philosopher and scientist Thomas Kuhn
               to describe a profound transformation in the way we see the world.
             </p>
