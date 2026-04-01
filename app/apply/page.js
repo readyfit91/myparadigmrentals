@@ -34,7 +34,6 @@ export default function ApplyPage() {
     hasLeaseViolation: '', leaseViolationDetails: '',
     // Financial
     creditScore: '', employer: '', jobTitle: '', monthlyIncome: '', employmentLength: '',
-    payStubs: null,
     // Occupancy
     numAdults: '', numChildren: '', occupantNames: '',
     // Lifestyle
@@ -359,11 +358,10 @@ export default function ApplyPage() {
                   <label className={label}>Self-Reported Credit Score *</label>
                   <input required name="creditScore" value={form.creditScore} onChange={handleChange} placeholder="e.g. 680" className={input} />
                 </div>
-                <div>
-                  <label className={label}>Upload Pay Stubs — Last 3 Months * (PDF)</label>
-                  <input required type="file" accept=".pdf" name="payStubs" onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-600 file:mr-3 file:py-1 file:px-3 file:rounded file:border-0 file:text-sm file:font-medium file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100" />
-                  <p className="text-xs text-gray-400 mt-1">Please combine all 3 pay stubs into one PDF file.</p>
+                <div className="sm:col-span-2">
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm text-blue-800">
+                    <strong>Pay Stubs:</strong> Please email your last 3 months of pay stubs to <strong>(314) 649-0073</strong> (text) or directly to us after submitting. Do not include pay stubs as attachments here.
+                  </div>
                 </div>
               </div>
             </div>
@@ -535,31 +533,28 @@ export default function ApplyPage() {
                 <p><strong>Application Fee:</strong> A non-refundable application fee of <strong>$65.00</strong> is due upon submission of this application. This fee covers the cost of screening and is not applied toward rent or deposit.</p>
               </div>
 
-              {/* Security Deposit Payment */}
-              <div className="bg-primary-50 border border-primary-200 rounded-xl p-5 mb-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary-600 rounded-lg p-2 mt-0.5">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              {/* Application Fee Payment — Embedded Stripe */}
+              <div className="border-2 border-primary-200 rounded-xl overflow-hidden mb-6">
+                <div className="bg-primary-600 px-5 py-3 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                  <span className="text-white font-semibold">Application Fee — $65.00</span>
+                </div>
+                <div className="p-5">
+                  <p className="text-sm text-gray-600 mb-4">
+                    Pay your non-refundable $65.00 application fee securely below. Payment is required to process your application.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => window.open('https://buy.stripe.com/fZu4gy7hG9PUbXc9I153O00', 'stripe_payment', 'width=500,height=700,scrollbars=yes,resizable=yes,left=' + Math.round((window.screen.width - 500) / 2) + ',top=' + Math.round((window.screen.height - 700) / 2))}
+                    className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/>
                     </svg>
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-primary-900 mb-1">Pay Security Deposit — $1,000.00</p>
-                    <p className="text-sm text-primary-700 mb-3">
-                      You may submit your security deposit now to secure your application. Payment is processed securely via Stripe.
-                    </p>
-                    <a
-                      href="https://buy.stripe.com/fZu4gy7hG9PUbXc9I153O00"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-primary-600 text-white text-sm px-5 py-2.5 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
-                    >
-                      Pay Now via Stripe
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  </div>
+                    Pay $65.00 via Stripe
+                  </button>
                 </div>
               </div>
               <div className="space-y-4">
