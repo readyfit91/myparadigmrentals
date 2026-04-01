@@ -12,6 +12,8 @@ export default function ApplyPage() {
   const [submitted, setSubmitted] = useState(false);
   const [pets, setPets] = useState([{ type: '', breed: '', weight: '' }]);
   const [vehicles, setVehicles] = useState([{ make: '', model: '', plate: '' }]);
+  const [occupantSSNs, setOccupantSSNs] = useState([]);
+  const [showSSNModal, setShowSSNModal] = useState(false);
   const [form, setForm] = useState({
     // Personal
     firstName: '', lastName: '', dob: '', ssn: '', email: '', phone: '',
@@ -57,6 +59,20 @@ export default function ApplyPage() {
   }
   function addPet() { setPets([...pets, { type: '', breed: '', weight: '' }]); }
   function removePet(i) { setPets(pets.filter((_, idx) => idx !== i)); }
+
+  function handleOccupantCount(e) {
+    const { name, value } = e.target;
+    const updated = { ...form, [name]: value };
+    const adults = parseInt(name === 'numAdults' ? value : form.numAdults) || 0;
+    const children = parseInt(name === 'numChildren' ? value : form.numChildren) || 0;
+    const additional = Math.max(0, adults + children - 1);
+    setOccupantSSNs(prev => {
+      const next = Array.from({ length: additional }, (_, i) => prev[i] || { name: '', ssn: '' });
+      return next;
+    });
+    setForm(updated);
+    if (additional > 0) setShowSSNModal(true);
+  }
 
   function handleVehicle(i, field, value) {
     const updated = vehicles.map((v, idx) => idx === i ? { ...v, [field]: value } : v);
@@ -308,11 +324,11 @@ export default function ApplyPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className={label}>Number of Adults *</label>
-                  <input required type="number" min="1" name="numAdults" value={form.numAdults} onChange={handleChange} className={input} />
+                  <input required type="number" min="1" name="numAdults" value={form.numAdults} onChange={handleOccupantCount} className={input} />
                 </div>
                 <div>
                   <label className={label}>Number of Children</label>
-                  <input type="number" min="0" name="numChildren" value={form.numChildren} onChange={handleChange} className={input} />
+                  <input type="number" min="0" name="numChildren" value={form.numChildren} onChange={handleOccupantCount} className={input} />
                 </div>
                 <div className="sm:col-span-2">
                   <label className={label}>Full Names of All Occupants *</label>
@@ -499,6 +515,68 @@ export default function ApplyPage() {
       </section>
 
       <Footer />
+
+      {/* ── Occupant SSN Modal ── */}
+      {showSSNModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b border-gray-100">
+              <h2 className="text-xl font-bold text-gray-900">Additional Occupant Information</h2>
+              <p className="text-sm text-gray-500 mt-1">
+                Please provide the full name and Social Security Number for each additional occupant.
+                This information is used solely for screening purposes.
+              </p>
+            </div>
+            <div className="p-6 space-y-6">
+              {occupantSSNs.map((occ, i) => (
+                <div key={i} className="bg-gray-50 rounded-xl p-5">
+                  <p className="text-sm font-semibold text-primary-700 uppercase tracking-wide mb-4">
+                    Occupant {i + 2}
+                  </p>
+                  <div className="space-y-4">
+                    <div>
+                      <label className={label}>Full Name *</label>
+                      <input
+                        required
+                        value={occ.name}
+                        onChange={e => {
+                          const updated = occupantSSNs.map((o, idx) => idx === i ? { ...o, name: e.target.value } : o);
+                          setOccupantSSNs(updated);
+                        }}
+                        placeholder="First and Last Name"
+                        className={input}
+                      />
+                    </div>
+                    <div>
+                      <label className={label}>Social Security Number *</label>
+                      <input
+                        required
+                        value={occ.ssn}
+                        onChange={e => {
+                          const updated = occupantSSNs.map((o, idx) => idx === i ? { ...o, ssn: e.target.value } : o);
+                          setOccupantSSNs(updated);
+                        }}
+                        placeholder="XXX-XX-XXXX"
+                        className={input}
+                      />
+                      <p className="text-xs text-gray-400 mt-1">Used solely for background and credit screening.</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="p-6 border-t border-gray-100">
+              <button
+                type="button"
+                onClick={() => setShowSSNModal(false)}
+                className="w-full bg-primary-600 text-white py-3 rounded-xl font-semibold hover:bg-primary-700 transition-colors"
+              >
+                Save & Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
