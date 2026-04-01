@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+
+const FORMSPREE_URL = 'https://formspree.io/f/mlgolpej';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
@@ -10,6 +12,8 @@ const label = "block text-sm font-medium text-gray-700 mb-1";
 
 export default function ApplyPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [pets, setPets] = useState([{ type: '', breed: '', weight: '' }]);
   const [vehicles, setVehicles] = useState([{ make: '', model: '', plate: '' }]);
   const [occupantSSNs, setOccupantSSNs] = useState([]);
@@ -81,10 +85,56 @@ export default function ApplyPage() {
   function addVehicle() { setVehicles([...vehicles, { make: '', model: '', plate: '' }]); }
   function removeVehicle(i) { setVehicles(vehicles.filter((_, idx) => idx !== i)); }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setSubmitting(true);
+    setSubmitError('');
+
+    const data = new FormData();
+
+    // Flat form fields
+    Object.entries(form).forEach(([key, val]) => {
+      if (val !== null && val !== undefined) data.append(key, val);
+    });
+
+    // Pets
+    pets.forEach((pet, i) => {
+      data.append(`pet_${i + 1}_type`, pet.type);
+      data.append(`pet_${i + 1}_breed`, pet.breed);
+      data.append(`pet_${i + 1}_weight`, pet.weight);
+    });
+
+    // Vehicles
+    vehicles.forEach((v, i) => {
+      data.append(`vehicle_${i + 1}_make`, v.make);
+      data.append(`vehicle_${i + 1}_model`, v.model);
+      data.append(`vehicle_${i + 1}_plate`, v.plate);
+    });
+
+    // Additional occupant SSNs
+    occupantSSNs.forEach((occ, i) => {
+      data.append(`occupant_${i + 2}_name`, occ.name);
+      data.append(`occupant_${i + 2}_ssn`, occ.ssn);
+    });
+
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const json = await res.json();
+        setSubmitError(json?.errors?.[0]?.message || 'Submission failed. Please try again.');
+      }
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -528,11 +578,18 @@ export default function ApplyPage() {
               </div>
             </div>
 
+            {submitError && (
+              <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl px-5 py-4 text-sm">
+                {submitError}
+              </div>
+            )}
+
             <button
               type="submit"
-              className="w-full bg-primary-600 text-white py-4 rounded-xl font-semibold text-lg hover:bg-primary-700 transition-colors"
+              disabled={submitting}
+              className="w-full bg-primary-600 text-white py-4 rounded-xl font-semibold text-lg hover:bg-primary-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Submit Application — $65.00 Fee Required
+              {submitting ? 'Submitting…' : 'Submit Application — $65.00 Fee Required'}
             </button>
             <p className="text-center text-xs text-gray-400 pb-4">
               By submitting this application you confirm all information is accurate and consent to all authorizations listed above.
