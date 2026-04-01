@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,9 +10,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <span className="text-primary-700 font-bold text-xl tracking-tight">
-              MyParadigm<span className="text-gray-800"> Rentals</span>
-            </span>
+            <Image
+              src="/logo.png"
+              alt="MyParadigm Rentals"
+              width={160}
+              height={48}
+              className="object-contain"
+              priority
+            />
           </div>
 
           {/* Desktop Nav */}
