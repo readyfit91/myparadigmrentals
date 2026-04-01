@@ -103,9 +103,7 @@ export default function PayRentPage() {
                 Make checks or money orders payable to <strong>MyParadigm Rentals</strong> and mail to:
               </p>
               <div className="bg-gray-50 rounded-lg p-5 font-mono text-sm text-gray-800 leading-relaxed mb-6">
-                MyParadigm Rentals<br />
-                4609 Kramer Drive<br />
-                Saint Louis, MO 63123
+                MyParadigm Rentals
               </div>
               <p className="text-sm text-gray-500">
                 Please write your unit number and full name in the memo line. Allow 3–5 business days for mailed payments to be processed.
@@ -123,8 +121,8 @@ export default function PayRentPage() {
                 <div className="bg-gray-50 rounded-lg p-5">
                   <p className="text-sm font-semibold text-gray-700 mb-2">Office Address</p>
                   <p className="text-sm text-gray-600">
-                    4609 Kramer Drive<br />
-                    Saint Louis, MO 63123
+                    Saint Louis, MO<br />
+                    <span className="italic text-gray-400">Address available upon request</span>
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-5">

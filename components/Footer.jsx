@@ -24,7 +24,6 @@ export default function Footer() {
             <div className="text-white font-semibold mb-3">Contact</div>
             <ul className="space-y-2 text-sm">
               <li>(314) 649-0073</li>
-              <li>4609 Kramer Drive, Saint Louis, MO 63123</li>
               <li>Call/Text 24/7</li>
             </ul>
           </div>

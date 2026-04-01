@@ -97,14 +97,10 @@ export default function Contact() {
         </div>
 
         {/* Contact Info */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 text-center max-w-md mx-auto">
           <div>
             <div className="text-primary-600 font-semibold mb-1">Phone</div>
             <div className="text-gray-600">(314) 649-0073</div>
-          </div>
-          <div>
-            <div className="text-primary-600 font-semibold mb-1">Address</div>
-            <div className="text-gray-600">4609 Kramer Drive<br />Saint Louis, MO 63123</div>
           </div>
           <div>
             <div className="text-primary-600 font-semibold mb-1">Hours</div>
