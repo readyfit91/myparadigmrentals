@@ -63,7 +63,7 @@ export default function AboutPage() {
               },
               {
                 title: 'Community',
-                desc: 'Our properties are more than buildings — they're neighborhoods where residents feel at home.',
+                desc: "Our properties are more than buildings — they're neighborhoods where residents feel at home.",
               },
               {
                 title: 'Responsiveness',
