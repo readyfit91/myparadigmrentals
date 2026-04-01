@@ -484,6 +484,34 @@ export default function ApplyPage() {
                 <p><strong>First & Last Month Rent:</strong> First month's rent and last month's rent are due in full at the time of lease signing.</p>
                 <p><strong>Application Fee:</strong> A non-refundable application fee of <strong>$65.00</strong> is due upon submission of this application. This fee covers the cost of screening and is not applied toward rent or deposit.</p>
               </div>
+
+              {/* Security Deposit Payment */}
+              <div className="bg-primary-50 border border-primary-200 rounded-xl p-5 mb-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary-600 rounded-lg p-2 mt-0.5">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-semibold text-primary-900 mb-1">Pay Security Deposit — $1,000.00</p>
+                    <p className="text-sm text-primary-700 mb-3">
+                      You may submit your security deposit now to secure your application. Payment is processed securely via Stripe.
+                    </p>
+                    <a
+                      href="https://buy.stripe.com/fZu4gy7hG9PUbXc9I153O00"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-primary-600 text-white text-sm px-5 py-2.5 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+                    >
+                      Pay Now via Stripe
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
               <div className="space-y-4">
                 {[
                   { name: 'agreeSecurityDeposit', label: 'I understand and agree to the $1,000.00 security deposit requirement.' },
