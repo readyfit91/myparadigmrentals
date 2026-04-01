@@ -104,8 +104,8 @@ export default function PayRentPage() {
               </p>
               <div className="bg-gray-50 rounded-lg p-5 font-mono text-sm text-gray-800 leading-relaxed mb-6">
                 MyParadigm Rentals<br />
-                123 Main Street, Suite 100<br />
-                Your City, TX 75001
+                4609 Kramer Drive<br />
+                Saint Louis, MO 63123
               </div>
               <p className="text-sm text-gray-500">
                 Please write your unit number and full name in the memo line. Allow 3–5 business days for mailed payments to be processed.
@@ -123,16 +123,14 @@ export default function PayRentPage() {
                 <div className="bg-gray-50 rounded-lg p-5">
                   <p className="text-sm font-semibold text-gray-700 mb-2">Office Address</p>
                   <p className="text-sm text-gray-600">
-                    123 Main Street, Suite 100<br />
-                    Your City, TX 75001
+                    4609 Kramer Drive<br />
+                    Saint Louis, MO 63123
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-5">
                   <p className="text-sm font-semibold text-gray-700 mb-2">Office Hours</p>
                   <p className="text-sm text-gray-600">
-                    Monday – Friday: 9am – 6pm<br />
-                    Saturday: 10am – 2pm<br />
-                    Sunday: Closed
+                    Call/Text 24/7
                   </p>
                 </div>
               </div>
@@ -153,7 +151,7 @@ export default function PayRentPage() {
               },
               {
                 q: 'What if I need to set up a payment plan?',
-                a: 'Please contact us at (555) 123-4567 or info@myparadigmrentals.com before your due date to discuss options.',
+                a: 'Please contact us at (314) 649-0073 or info@myparadigmrentals.com before your due date to discuss options.',
               },
               {
                 q: 'Can I pay with cash?',

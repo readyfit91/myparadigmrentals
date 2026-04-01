@@ -100,15 +100,15 @@ export default function Contact() {
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <div>
             <div className="text-primary-600 font-semibold mb-1">Phone</div>
-            <div className="text-gray-600">(555) 123-4567</div>
+            <div className="text-gray-600">(314) 649-0073</div>
           </div>
           <div>
-            <div className="text-primary-600 font-semibold mb-1">Email</div>
-            <div className="text-gray-600">info@myparadigmrentals.com</div>
+            <div className="text-primary-600 font-semibold mb-1">Address</div>
+            <div className="text-gray-600">4609 Kramer Drive<br />Saint Louis, MO 63123</div>
           </div>
           <div>
-            <div className="text-primary-600 font-semibold mb-1">Office Hours</div>
-            <div className="text-gray-600">Mon–Fri, 9am–6pm</div>
+            <div className="text-primary-600 font-semibold mb-1">Hours</div>
+            <div className="text-gray-600">Call/Text 24/7</div>
           </div>
         </div>
       </div>

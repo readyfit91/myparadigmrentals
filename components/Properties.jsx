@@ -66,9 +66,9 @@ export default function Properties() {
     <section id="properties" className="py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Available Properties</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Properties in Our Portfolio</h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Browse our current listings. New units are added regularly — contact us to get on our waitlist.
+            Browse our portfolio of properties. Contact us to learn about availability and schedule a tour.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -23,9 +23,9 @@ export default function Footer() {
           <div>
             <div className="text-white font-semibold mb-3">Contact</div>
             <ul className="space-y-2 text-sm">
-              <li>(555) 123-4567</li>
-              <li>info@myparadigmrentals.com</li>
-              <li>Mon–Fri, 9am–6pm</li>
+              <li>(314) 649-0073</li>
+              <li>4609 Kramer Drive, Saint Louis, MO 63123</li>
+              <li>Call/Text 24/7</li>
             </ul>
           </div>
         </div>
