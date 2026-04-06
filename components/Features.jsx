@@ -15,7 +15,7 @@ const features = [
       </svg>
     ),
     title: 'Flexible Payment',
-    description: 'We offer flexible payment plans and accept multiple payment methods to make renting as easy as possible.',
+    description: 'We accept multiple payment methods to make renting as easy as possible.',
   },
   {
     icon: (

@@ -30,10 +30,6 @@ export default function Hero() {
         {/* Stats */}
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-xl mx-auto">
           <div>
-            <div className="text-3xl font-bold text-white">50+</div>
-            <div className="text-primary-200 text-sm mt-1">Available Units</div>
-          </div>
-          <div>
             <div className="text-3xl font-bold text-white">5★</div>
             <div className="text-primary-200 text-sm mt-1">Avg. Rating</div>
           </div>
