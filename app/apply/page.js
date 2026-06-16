@@ -9,6 +9,7 @@ function ApplicationForm() {
   const [submitted, setSubmitted] = useState(false);
   const [consent, setConsent] = useState(false);
   const [signature, setSignature] = useState('');
+  const [hasPet, setHasPet] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -129,13 +130,18 @@ function ApplicationForm() {
                 <input type="number" min="1" required className={inputClass} placeholder="1" />
               </div>
               <div>
-                <label className={labelClass}>Do you have pets?</label>
-                <select className={inputClass}>
+                <label className={labelClass}>Do you have a pet? <span className="text-gray-400 font-normal">(max 1)</span></label>
+                <select className={inputClass} onChange={(e) => setHasPet(e.target.value !== 'No')}>
                   <option>No</option>
                   <option>Yes — dog</option>
                   <option>Yes — cat</option>
                   <option>Yes — other</option>
                 </select>
+                {hasPet && (
+                  <div className="mt-2 bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-3 text-sm text-yellow-800">
+                    <strong>Pet Policy:</strong> A one-time non-refundable <strong>$150 pet deposit</strong> and an additional <strong>$35/month pet rent</strong> will apply. Maximum of 1 pet allowed.
+                  </div>
+                )}
               </div>
               <div>
                 <label className={labelClass}>Desired Move-in Date</label>
