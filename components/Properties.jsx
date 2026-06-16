@@ -9,7 +9,7 @@ const properties = [
     tag: 'Available Now',
     tagColor: 'bg-green-100 text-green-700',
     features: [],
-    image: null,
+    image: '/wachtel-ave.webp',
   },
 ];
 
