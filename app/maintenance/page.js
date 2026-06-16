@@ -34,7 +34,7 @@ export default function MaintenancePage() {
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.55)' }} />
         <div className="relative text-center px-4">
           <div className="flex items-center justify-center mb-3">
             <svg className="w-10 h-10 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,113 +46,112 @@ export default function MaintenancePage() {
           <p className="text-gray-200 text-lg max-w-xl mx-auto">
             Let us know what needs attention. Our team is here to help.
           </p>
-          <div className="mt-4 inline-block bg-white/20 border border-white/30 text-white text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
+          <div className="mt-4 inline-block border border-white text-white text-sm font-medium px-4 py-1.5 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }}>
             ⏱ We respond within 24 hours
           </div>
         </div>
       </div>
 
+      {/* Form */}
       <div className="py-12 px-4">
-
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-sm p-8">
-          {submitted ? (
-            <div className="text-center py-10">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">Request Submitted!</h2>
-              <p className="text-gray-500">Thank you! Someone from our office will contact you within <strong>24 hours</strong>.</p>
-              <a href="/" className="inline-block mt-6 text-primary-600 font-medium hover:underline">← Back to home</a>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-
-              {/* Contact Info */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className={labelClass}>First Name</label>
-                  <input type="text" required className={inputClass} placeholder="Jane" />
-                </div>
-                <div>
-                  <label className={labelClass}>Last Name</label>
-                  <input type="text" required className={inputClass} placeholder="Doe" />
-                </div>
-              </div>
-              <div>
-                <label className={labelClass}>Unit Address</label>
-                <input type="text" required className={inputClass} placeholder="e.g. 1311 Wachtel Ave, Saint Louis, MO 63125" />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className={labelClass}>Phone</label>
-                  <input type="tel" required className={inputClass} placeholder="(555) 000-0000" />
-                </div>
-                <div>
-                  <label className={labelClass}>Email</label>
-                  <input type="email" required className={inputClass} placeholder="jane@example.com" />
-                </div>
-              </div>
-
-              {/* Room Selection */}
-              <div>
-                <label className={labelClass}>Which room is the issue in?</label>
-                <select required className={inputClass}>
-                  <option value="">— Select a room —</option>
-                  {rooms.map((r) => (
-                    <option key={r} value={r}>{r}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Description */}
-              <div>
-                <label className={labelClass}>Description of the Issue</label>
-                <textarea
-                  rows={5}
-                  required
-                  className={inputClass}
-                  placeholder="Please describe what is going on in as much detail as possible..."
-                />
-              </div>
-
-              {/* Photo Upload */}
-              <div>
-                <label className={labelClass}>
-                  Upload Photos <span className="text-gray-400 font-normal">(optional)</span>
-                </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg px-4 py-6 text-center hover:border-primary-400 transition-colors">
-                  <svg className="w-8 h-8 text-gray-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-sm p-8">
+            {submitted ? (
+              <div className="text-center py-10">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <p className="text-sm text-gray-500 mb-2">Attach photos to help us understand the issue</p>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    className="text-sm text-gray-500 file:mr-3 file:py-1.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100 cursor-pointer"
+                </div>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">Request Submitted!</h2>
+                <p className="text-gray-500">Thank you! Someone from our office will contact you within <strong>24 hours</strong>.</p>
+                <a href="/" className="inline-block mt-6 text-primary-600 font-medium hover:underline">← Back to home</a>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+
+                {/* Contact Info */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className={labelClass}>First Name</label>
+                    <input type="text" required className={inputClass} placeholder="Jane" />
+                  </div>
+                  <div>
+                    <label className={labelClass}>Last Name</label>
+                    <input type="text" required className={inputClass} placeholder="Doe" />
+                  </div>
+                </div>
+                <div>
+                  <label className={labelClass}>Unit Address</label>
+                  <input type="text" required className={inputClass} placeholder="e.g. 1311 Wachtel Ave, Saint Louis, MO 63125" />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className={labelClass}>Phone</label>
+                    <input type="tel" required className={inputClass} placeholder="(555) 000-0000" />
+                  </div>
+                  <div>
+                    <label className={labelClass}>Email</label>
+                    <input type="email" required className={inputClass} placeholder="jane@example.com" />
+                  </div>
+                </div>
+
+                {/* Room Selection */}
+                <div>
+                  <label className={labelClass}>Which room is the issue in?</label>
+                  <select required className={inputClass}>
+                    <option value="">— Select a room —</option>
+                    {rooms.map((r) => (
+                      <option key={r} value={r}>{r}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Description */}
+                <div>
+                  <label className={labelClass}>Description of the Issue</label>
+                  <textarea
+                    rows={5}
+                    required
+                    className={inputClass}
+                    placeholder="Please describe what is going on in as much detail as possible..."
                   />
                 </div>
-              </div>
 
-              {/* 24hr notice */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm text-blue-800">
-                Someone from our office will contact you within <strong>24 hours</strong> of receiving your request.
-              </div>
+                {/* Photo Upload */}
+                <div>
+                  <label className={labelClass}>
+                    Upload Photos <span className="text-gray-400 font-normal">(optional)</span>
+                  </label>
+                  <div className="border-2 border-dashed border-gray-300 rounded-lg px-4 py-6 text-center hover:border-primary-400 transition-colors">
+                    <svg className="w-8 h-8 text-gray-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <p className="text-sm text-gray-500 mb-2">Attach photos to help us understand the issue</p>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      className="text-sm text-gray-500 file:mr-3 file:py-1.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100 cursor-pointer"
+                    />
+                  </div>
+                </div>
 
-              <button
-                type="submit"
-                className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg"
-              >
-                Submit Maintenance Request
-              </button>
-            </form>
-          )}
+                {/* 24hr notice */}
+                <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-3 text-sm text-blue-800">
+                  Someone from our office will contact you within <strong>24 hours</strong> of receiving your request.
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg"
+                >
+                  Submit Maintenance Request
+                </button>
+              </form>
+            )}
+          </div>
         </div>
-      </div>
-      </div>
       </div>
     </main>
   );
