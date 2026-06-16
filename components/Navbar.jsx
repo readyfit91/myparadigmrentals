@@ -19,6 +19,7 @@ export default function Navbar() {
             <a href="#properties" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">Properties</a>
             <a href="#features" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">Why Us</a>
             <a href="#contact" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">Contact</a>
+            <a href="/maintenance" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">Maintenance Request</a>
             <a
               href="#contact"
               className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors font-medium"
@@ -48,6 +49,7 @@ export default function Navbar() {
             <a href="#properties" className="block px-3 py-2 text-gray-600 hover:text-primary-600 font-medium" onClick={() => setMenuOpen(false)}>Properties</a>
             <a href="#features" className="block px-3 py-2 text-gray-600 hover:text-primary-600 font-medium" onClick={() => setMenuOpen(false)}>Why Us</a>
             <a href="#contact" className="block px-3 py-2 text-gray-600 hover:text-primary-600 font-medium" onClick={() => setMenuOpen(false)}>Contact</a>
+            <a href="/maintenance" className="block px-3 py-2 text-gray-600 hover:text-primary-600 font-medium" onClick={() => setMenuOpen(false)}>Maintenance Request</a>
             <a href="#contact" className="block px-3 py-2 bg-primary-600 text-white rounded-lg text-center font-medium" onClick={() => setMenuOpen(false)}>Schedule a Tour</a>
           </div>
         )}
