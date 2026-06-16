@@ -1,26 +1,28 @@
 const properties = [
   {
-    name: '1311 Wachtel Ave — Unit A',
+    name: '1311 Wachtel Ave',
     address: 'Saint Louis, MO 63125',
     beds: 1,
     baths: 1,
     sqft: null,
-    price: null,
+    price: 900,
     tag: 'Available Now',
     tagColor: 'bg-green-100 text-green-700',
-    features: [],
+    features: ['Garage Access', 'Tenant Pays Electric', 'Tenant Pays Gas', 'Tenant Pays Water'],
+    deposit: 'First & last month rent + $600 security deposit',
     image: '/wachtel-ave.webp',
   },
   {
-    name: '1311 Wachtel Ave — Unit B',
+    name: '1313 Wachtel Ave',
     address: 'Saint Louis, MO 63125',
     beds: 1,
     baths: 2,
     sqft: null,
-    price: null,
+    price: 975,
     tag: 'Available Now',
     tagColor: 'bg-green-100 text-green-700',
-    features: ['Finished Basement'],
+    features: ['Finished Basement', 'Garage Access', 'Tenant Pays Electric', 'Tenant Pays Gas', 'Tenant Pays Water'],
+    deposit: 'First & last month rent + $600 security deposit',
     image: '/wachtel-ave.webp',
   },
 ];
@@ -67,17 +69,20 @@ export default function Properties() {
                     ))}
                   </div>
                 )}
-                <div className="flex items-center justify-between mt-4">
+                {p.deposit && (
+                  <p className="text-xs text-gray-400 mb-3">{p.deposit}</p>
+                )}
+                <div className="flex items-center justify-between mt-2">
                   {p.price ? (
                     <span className="text-2xl font-bold text-primary-700">${p.price.toLocaleString()}<span className="text-sm font-normal text-gray-400">/mo</span></span>
                   ) : (
                     <span className="text-sm text-gray-400">Contact for pricing</span>
                   )}
                   <a
-                    href="#contact"
+                    href={`/apply?property=${encodeURIComponent(p.name + ' — ' + p.address)}`}
                     className="bg-primary-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors font-medium"
                   >
-                    Inquire
+                    Submit Application
                   </a>
                 </div>
               </div>
