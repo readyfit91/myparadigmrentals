@@ -35,20 +35,6 @@ function ApplicationForm() {
           <p>A background and credit check will be conducted on all applicants. By submitting this application you consent to this process.</p>
         </div>
 
-        {/* Application fee banner */}
-        <div className="bg-primary-50 border border-primary-200 rounded-xl px-6 py-4 mb-8 text-sm">
-          <p className="font-semibold text-primary-800 mb-1">Non-Refundable $50 Application Fee</p>
-          <p className="text-primary-700 mb-3">A $50 application fee is required to process your application. This fee is non-refundable.</p>
-          <a
-            href="https://buy.stripe.com/8x28wO31q4vAgds6vP53O01"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-primary-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-primary-700 transition-colors"
-          >
-            Pay $50 Application Fee →
-          </a>
-        </div>
-
         <div className="bg-white rounded-2xl shadow-sm p-8">
           {submitted ? (
             <div className="text-center py-10">
@@ -58,8 +44,24 @@ function ApplicationForm() {
                 </svg>
               </div>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Application Submitted!</h2>
-              <p className="text-gray-500">Thank you! We'll review your application and reach out within 24 hours.</p>
-              <a href="/" className="inline-block mt-6 text-primary-600 font-medium hover:underline">← Back to listings</a>
+              <p className="text-gray-500 mb-8">Thank you! We'll review your application and reach out within 24 hours.</p>
+
+              {/* Payment CTA — unmissable */}
+              <div className="bg-red-50 border-2 border-red-400 rounded-2xl px-6 py-6 text-center animate-pulse">
+                <p className="text-red-700 font-bold text-lg mb-1">⚠️ One Last Step — Do Not Skip!</p>
+                <p className="text-red-600 text-sm mb-4">Your application is <strong>not finalized</strong> until the $50 non-refundable application fee is paid.</p>
+                <a
+                  href="https://buy.stripe.com/8x28wO31q4vAgds6vP53O01"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-red-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-red-700 transition-colors shadow-lg"
+                >
+                  👉 Click Here to Pay $50 Application Fee
+                </a>
+                <p className="text-xs text-red-400 mt-3">Applications without payment will not be processed.</p>
+              </div>
+
+              <a href="/" className="inline-block mt-8 text-primary-600 font-medium hover:underline">← Back to listings</a>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
