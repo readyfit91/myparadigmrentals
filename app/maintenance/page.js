@@ -23,13 +23,38 @@ export default function MaintenancePage() {
   const labelClass = 'block text-sm font-medium text-gray-700 mb-1';
 
   return (
-    <main className="min-h-screen bg-gray-50 py-16 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-10">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Maintenance Request</h1>
-          <p className="text-gray-500">Submit a request below and someone from our office will contact you within 24 hours.</p>
-        </div>
+    <main className="min-h-screen bg-gray-50">
 
+      {/* Hero Banner */}
+      <div
+        className="relative h-64 sm:h-80 flex items-center justify-center"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative text-center px-4">
+          <div className="flex items-center justify-center mb-3">
+            <svg className="w-10 h-10 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <h1 className="text-3xl sm:text-4xl font-bold text-white">Maintenance Request</h1>
+          </div>
+          <p className="text-gray-200 text-lg max-w-xl mx-auto">
+            Let us know what needs attention. Our team is here to help.
+          </p>
+          <div className="mt-4 inline-block bg-white/20 border border-white/30 text-white text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
+            ⏱ We respond within 24 hours
+          </div>
+        </div>
+      </div>
+
+      <div className="py-12 px-4">
+
+      <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-2xl shadow-sm p-8">
           {submitted ? (
             <div className="text-center py-10">
@@ -126,6 +151,8 @@ export default function MaintenancePage() {
             </form>
           )}
         </div>
+      </div>
+      </div>
       </div>
     </main>
   );
